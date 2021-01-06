@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Fork api &mdash; oasis_hackathon_3n 1.0 문서</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="Message api" href="message.html" />
+    <link rel="prev" title="Article api" href="article.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> oasis_hackathon_3n
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="account.html">Account api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="article.html">Article api</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fork api</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fork-make-fork-post">/fork/make_fork (POST)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fork-delete-fork-delete">/fork/delete_fork (DELETE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fork-get-fork-list-get">/fork/get_fork_list (GET)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="message.html">Message api</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">oasis_hackathon_3n</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Fork api</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/fork.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fork-api">
+<h1>Fork api<a class="headerlink" href="#fork-api" title="제목 주소">¶</a></h1>
+<div class="section" id="fork-make-fork-post">
+<h2>/fork/make_fork (POST)<a class="headerlink" href="#fork-make-fork-post" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p><strong>특정 게시물을 포크</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Paramaters</dt>
+<dd class="field-odd"><p><strong>id</strong></p>
+<ul class="simple">
+<li><p>name: id</p></li>
+<li><p>in: json</p></li>
+<li><p>description: 포크하는 사용자의 아이디</p></li>
+<li><p>required: true</p></li>
+</ul>
+<p><strong>article_id</strong></p>
+<ul class="simple">
+<li><p>name: article_id</p></li>
+<li><p>in: json</p></li>
+<li><p>description: 포크하는 게시물의 아이디</p></li>
+<li><p>required: true</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/fork/make_fork</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">52.79.54.196:2500</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;Brankein13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;article_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">resheader Content-Type</dt>
+<dd class="field-odd"><p>application/json</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>200: 성공적으로 요청을 수행함</p></li>
+<li><p>500: 알 수 없는 오류 발생</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="fork-delete-fork-delete">
+<h2>/fork/delete_fork (DELETE)<a class="headerlink" href="#fork-delete-fork-delete" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p><strong>포크를 삭제</strong></p>
+<dl class="field-list">
+<dt class="field-odd">Paramaters</dt>
+<dd class="field-odd"><p><strong>id</strong></p>
+<ul class="simple">
+<li><p>name: id</p></li>
+<li><p>in: json</p></li>
+<li><p>description: 포크를 삭제하는 사용자의 아이디</p></li>
+<li><p>required: true</p></li>
+</ul>
+<p><strong>article_id</strong></p>
+<ul class="simple">
+<li><p>name: article_id</p></li>
+<li><p>in: jaon</p></li>
+<li><p>description: 포크를 삭제하는 게시물의 아이디</p></li>
+<li><p>required: true</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/message/get_message_groups?id=BranKein13</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">52.79.54.196:2500</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;BranKein13&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;article_id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">resheader Content-Type</dt>
+<dd class="field-odd"><p>application/json</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>200: 성공적으로 요청을 수행함</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="fork-get-fork-list-get">
+<h2>/fork/get_fork_list (GET)<a class="headerlink" href="#fork-get-fork-list-get" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p><strong>포크한 게시물들만 가져옴</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramaters</dt>
+<dd class="field-odd"><p><strong>id</strong></p>
+<ul class="simple">
+<li><p>name: id</p></li>
+<li><p>in: query_string</p></li>
+<li><p>description: 포크한 게시물들을 가져올 사용자의 아이디</p></li>
+<li><p>required: true</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/fork/get_fork_list</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">52.79.54.196:2500</span>
+<span class="na">Response-Type</span><span class="o">:</span> <span class="l">application/json</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;cost&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+            <span class="nt">&quot;fork_num&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;remain_time&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="nt">&quot;submitter&quot;</span><span class="p">:</span> <span class="s2">&quot;프노&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;첫 테스트&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;views&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">resheader Content-Type</dt>
+<dd class="field-odd"><p>application/json</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>200: 성공적으로 요청을 수행함</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="message.html" class="btn btn-neutral float-right" title="Message api" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="article.html" class="btn btn-neutral float-left" title="Article api" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yeonhyuk Kim.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
